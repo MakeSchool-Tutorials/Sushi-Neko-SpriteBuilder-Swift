@@ -15,11 +15,11 @@ To get started, [download our art pack](). Add the art pack you just downloaded 
 
 Now that we have art, create a new *CCB-File* named `Character.ccb` of type `Sprite`.
 
-Set its *sprite frame property* to `SushiNekoAssets/character1.png`:
+Set its *sprite frame property* to `assets/character1.png`:
 
+<!--Consider moving this image below next paragraph with anchor points changed. It would be concise and clear if we used the red box thing around anchor point and -->
 ![](./SpriteBuilder_Character_SF.png)
 
-We won't be adding any animations until after we finish the core gameplay.
 
 Now set the *anchor point* to `(1, 0)` so that it is positioned relative to its bottom-right corner. We'll see how this makes things easier when we setup the *MainScene*.
 
@@ -33,7 +33,7 @@ Create a *CCB-File* named `Piece.ccb` of type `CCNode`. We want to create a CCNo
 
 Set the root nodes *content size* to `(105, 60)` and its *anchor point* to `(0.5, 0)`. These properties will make it easy for us to build a stack of sushi from code.
 
-Drag in `roll.png` from the your resources as a child of the root. Also drag in two `chopstick.png` from the resources as a child of *roll*. Name one `right` and the other `left`
+Drag in `roll.png` from the your assets as a child of the root. Also drag in two `chopstick.png` from the resources as a child of *roll*. Name one `right` and the other `left`
 
 Your timeline should look like this:
 
