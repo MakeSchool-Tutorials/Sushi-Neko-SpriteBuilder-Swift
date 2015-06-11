@@ -33,7 +33,7 @@ Now it's time to create the obstacles!
 
 Create a *CCB-File* named `Piece.ccb` of type `CCNode`. We want to create a CCNode so that we can have more control over its animations later on in the tutorial.
 
-Set the root nodes *content size* to `(105, 60)` and its *anchor point* to `(0.5, 0)`. These properties will make it easy for us to build a stack of sushi from code. You should also set its *custom class* to `Piece`, just like you did for `Character.ccb` above.
+Set the root node's *content size* to `(105, 60)` and its *anchor point* to `(0.5, 0)`. These properties will make it easy for us to build a stack of sushi from code. You should also set its *custom class* to `Piece`, just like you did for `Character.ccb` above.
 
 Drag in `roll.png` from the your assets as a child of the root. Also drag in two `chopstick.png` from the resources as a child of *roll*. Name one `right` and the other `left`.
 
