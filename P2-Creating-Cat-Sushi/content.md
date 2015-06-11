@@ -13,19 +13,21 @@ To get started, [download our art pack](). Add the art pack you just downloaded 
 
 **Create the Character**
 
-Now that we have art, create a new *CCB-File* named `Character.ccb` of type `Sprite`.
+Now that we have art, create a new *CCB-File* (File > New > File) named `Character.ccb` of type `Sprite`:
 
-Set its *sprite frame property* to `assets/character1.png`:
+![](./SpriteBuilder_CreateNewSprite.png)
 
-<!--Consider moving this image below next paragraph with anchor points changed. It would be concise and clear if we used the red box thing around anchor point and -->
-![](./SpriteBuilder_Character_SF.png)
+Set its *sprite frame property* to `assets/character1.png`.
 
+Now set the *anchor point* to `(1, 0)` so that it is positioned relative to its bottom-right corner. We'll see how this makes things easier when we setup the *MainScene*. When you're done, it should look like this:
 
-Now set the *anchor point* to `(1, 0)` so that it is positioned relative to its bottom-right corner. We'll see how this makes things easier when we setup the *MainScene*.
+![](./SpriteBuilder_Cattributes.png)
 
 We also want to set its *custom class property* to `Character` so that it looks for `Character.swift` when we create it later.
 
-Now it's time to create the obstacles.
+![](./SpriteBuilder_ChangeCustomClass.png)
+
+Now it's time to create the obstacles!
 
 **Create an Obstacle Piece**
 
