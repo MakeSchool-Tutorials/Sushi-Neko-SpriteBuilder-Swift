@@ -13,7 +13,7 @@ We'll need three Swift classes for our game right now:
 
 `MainScene.swift` has already been created for us by SpriteBuilder so only need to create two.
 
-If you haven't already, open up `SushiNeko.xcodeproj` -- it should be in your `SushiNeko.spritebuilder` folder.
+If you haven't already, open up `SushiNeko.xcodeproj`, which you can do by going to File > Open Project In Xcode, or by navigating to it in Finder -- it should be in your `SushiNeko.spritebuilder` folder.
 
 In Xcode, go to `File > New > File`. Select `iOS Source` from the left side and then `Swift File`. Press `Next` and save it as `Character` in your `Source` folder.
 
@@ -75,7 +75,7 @@ We'll also need access to one of those code connections we added in SpriteBuilde
 > [solution]
 > After the opening curly brace in `class MainScene: CCNode {` add:
 >
->       var piecesNode: CCNode!
+>       weak var piecesNode: CCNode!
 >       var pieces: [Piece] = []
 >
 > Remember, we always use *implicitly unwrapped optionals* (the !) for code connections from SpriteBuilder.
@@ -134,8 +134,10 @@ Before we can actually detect touches, we need to complete the code connection f
 
 > [action]
 > Add this near where you declared the other instance variables:
->       var character: Character!
->
+> 
+>       weak var character: Character!
+> Code connection variables should use the keyword weak because they only mark a reference to rather than an ownership of the object they are pointing to.
+> 
 > Add this to the end of `didLoadFromCCB` in `MainScene.swift`:
 >
 >       userInteractionEnabled = true
@@ -184,8 +186,8 @@ Let's setup the `Piece` class. We need to complete the code connections to `left
 > [action]
 > Open up `Piece.swift` and add this to the top of the class declaration:
 >
->       var left: CCSprite!
->       var right: CCSprite!
+>       weak var left: CCSprite!
+>       weak var right: CCSprite!
 >
 >       var side: Side = .None {
 >           didSet {
@@ -298,6 +300,14 @@ We'll add more to the `stepTower` method later on but go ahead and give this ver
 > You might have noticed that `pieceIndex` hasn't be declared yet. Make sure to add the following near your other instance variables:
 >
 >       var pieceIndex: Int = 0
+> 
+> Don't forget to call stepTower() every time you touch the screen! Add the method call to the bottom of your touch began function:
+> 
+> 		override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+			...
+			stepTower()
+		}
+
 
 Launch the game and play around a bit. You should have an infinitely looping tower of sushi with randomized obstacles!
 
@@ -328,9 +338,9 @@ Now checking for collisions between the character and obstacles is as easy as co
 > Add a `gameOver` instance variable to `MainScene` and complete the code connection to `restartButton`:
 >
 >       var gameOver = false
->       var restartButton: CCButton!
+>       weak var restartButton: CCButton!
 >
-> Create a `isGameOver() -> Bool ` method in `MainScene`:
+> Create an `isGameOver() -> Bool ` method in `MainScene`:
 >
 >       func isGameOver() -> Bool {
 >           var newPiece = pieces[pieceIndex]
@@ -391,7 +401,7 @@ We are going to use property observers to update the `scaleX` of our `lifeBar` a
 > [action]
 > First we need to complete the code connection for `lifeBar`. Add the following to `MainScene` near your instance variables:
 >
->       var lifeBar: CCSprite!
+>       weak var lifeBar: CCSprite!
 >
 > We also want to create an instance variable to track time left and setup a property observer on it to change `scaleX` on `lifeBar` whenever it changes. Add the following near your other instance variables:
 >
@@ -433,7 +443,7 @@ Try and see if you can implement it on your own!
 > [solution]
 > Add the following to complete the code connection for `scoreLabel`:
 >
->       var scoreLabel: CCLabelTTF!
+>       weak var scoreLabel: CCLabelTTF!
 >
 > Create a `score` instance variable with a `didSet` property observer to update `scoreLabel`:
 >
