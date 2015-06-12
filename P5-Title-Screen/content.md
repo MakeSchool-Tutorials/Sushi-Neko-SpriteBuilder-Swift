@@ -10,10 +10,10 @@ Now it's time to start turning this into a fully polished game. In the next thre
 <!--#2 is awkwardly phrased-->
 1. Add a title screen
 2. Add a play button
-2. Add tap indicators (how to play)
-3. Animate the character with a sprite frame animation
-4. Animate the sushi pieces with a keyframe animation
-5. Add a game over screen with a score recap
+3. Add tap indicators (how to play)
+4. Animate the character with a sprite frame animation
+5. Animate the sushi pieces with a keyframe animation
+6. Add a game over screen with a score recap
 
 ##Getting started
 
@@ -34,6 +34,18 @@ You'll see a fitting font in your asset pack but it doesn't quite match the pixe
 
 Later you can experiment with other effects but this is what we liked best for the style of Sushi Neko.
 
+##Updating the score label
+You've probably noticed that our score label looks a little out of place. Let's fix it!
+
+> [action]
+>  Drag the score label on your timeline into the effect node where you just placed the title. Update its:
+> 
+> - *font name* to `Game of Three.ttf`
+> - *font size* to `64`
+> - *outline width* to `5`
+> 
+
+
 ##Adding a title
 
 Now let's build a title for our game. We didn't include an asset so we'll be using LabelTTF nodes.
@@ -41,10 +53,12 @@ Now let's build a title for our game. We didn't include an asset so we'll be usi
 > [action]
 > Drag a basic node into the timeline as a child of the effect node you added last step. Set its:
 > 
+> - *position reference corner* to `top left`
+> - *position* to `(50%, 0)`
 > - *content size* to `(100%, 225)`
 > - *anchor point* to `(0.5, 1)`
-> - *position* to `(50%, 0)`
-> - *position reference corner* to `top left`
+> 
+>
 > 
 > ![]()
 > 
@@ -65,6 +79,7 @@ Now let's build a title for our game. We didn't include an asset so we'll be usi
 > - *positon* to `(50%, 70)`
 > - *label text* to `Neko`
 > - other font properties to match the previous label
+> 
 
 ##Animating the title
 
@@ -144,7 +159,7 @@ We need to get our tap sprites on the screen before we can animate them.
 > 
 > Drag `tap_left` in as a child of this new node. Set its *position* to `(0, 48)` and *anchor point* to `(-0.2, 0.5)`.
 > 
-> Drag `tap_right` in also as of your new node. Set its *position* and *anchor point* the same as `tap_left` but use a *position reference corner* of `bottom right`.
+> Now drag `tap_right` in as a child of this new node. This time we'll position it based off the right edge of the screen, so set its *position reference corner* to `bottom right`. We also need to reverse the horizontal component of our *anchor point* - set it to `(1.2, 0.5)`. Because we are using a different reference corner, we can achieve symmetry by using the same position as `tap_left`, so position `tap_right` accordingly.
 > 
 > Uncheck `Visible` for both `tap_left` and `tap_right`.
 
@@ -255,7 +270,7 @@ Now let's get our play button working.
 > 
 > Complete the code connection to `tapButtons` by adding the following near your other instance variables:
 > 
->       var tapButtons: CCNode!
+>       weak var tapButtons: CCNode!
 
 This method gets trigger when you press the play button. It updates the game state and then changes the timeline to the second one we made. At the end, we fade the tapButtons in. We would have animated this from SpriteBuilder but it does not currently allow for opacity keyframe animations on button nodes.
 
