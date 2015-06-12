@@ -127,17 +127,18 @@ We'll also need a play button now so that the player can move past the title scr
 > 
 > - *position* to `(50%, 42)`
 > - *preferred size* to `(101, 63)`
-> - *sprite frame* to `button.png` for ALL states
+> - *sprite frame* to `assets/button.png` for ALL states
 > - *selector* to `ready`
 
 The `ready` function will be used to change the `MainScene` animation to the next timeline we create.
 
 ##Cleaning up
 
-The life bar is currently visible. Let's hide it to make the launch look a bit cleaner.
+The life bar and score label are currently visible. Let's hide them to make the launch look a bit cleaner.
 
 > [action]
 > Select `life_bg` from the timeline. Uncheck `Visible`.
+> Do the same for the score label.
 
 It's also good practice to name objects in your timeline with relevant names. You can double click any node's name in the timeline to rename it. Try renaming your new nodes to match the screenshot below!
 
@@ -149,17 +150,19 @@ It's also good practice to name objects in your timeline with relevant names. Yo
 
 We need to get our tap sprites on the screen before we can animate them.
 
+<!--I added "making sure it's not a child of the effect node" because two/two times I added it as I was following along, it made itself a child of the effect node.-->
+
 > [action]
-> Drag in a basic node. Set its:
+> Drag in a `Node`, making sure it's not a child of the effect node. Set its:
 > 
 > - *position* to `(0, 0)`
-> - *anchor point* to `(0, 0)`
 > - *content size* to `(100%, 0)`
+> - *anchor point* to `(0, 0)`
 > - `doc root var` *code connection* to `tapButtons`
 > 
 > Drag `tap_left` in as a child of this new node. Set its *position* to `(0, 48)` and *anchor point* to `(-0.2, 0.5)`.
 > 
-> Now drag `tap_right` in as a child of this new node. This time we'll position it based off the right edge of the screen, so set its *position reference corner* to `bottom right`. We also need to reverse the horizontal component of our *anchor point* - set it to `(1.2, 0.5)`. Because we are using a different reference corner, we can achieve symmetry by using the same position as `tap_left`, so position `tap_right` accordingly.
+> Now drag `tap_right` in as a child of the same node. This time we'll position it based off the right edge of the screen, so set its *position reference corner* to `bottom right`. We also need to reverse the horizontal component of our *anchor point* - set it to `(1.2, 0.5)`. Because we are using a different reference corner, we can achieve symmetry by using the same position as `tap_left`.
 > 
 > Uncheck `Visible` for both `tap_left` and `tap_right`.
 
@@ -177,7 +180,7 @@ The tap indicators need to be animated on a separate timeline play their animati
 Let's get started with our animation. We want the tap buttons to move back and forth from left to right so they catch the player's attention.
 
 > [action]
-> Start off by adding a visibility keyframe at `00:00:00`. Visibility keyframes flip the visibility from its usual state. In this case, it will make the tap indicator visible since it is not visible by default.
+> First, we'll need to add some visibility keyframes. Visibility keyframes flip the visibility from its usual state. In this case, it will make the tap indicators visible since they're not visible by default.
 > 
 > To do this, select `tap_left`. Drag the animation scrubber to `00:00:00` (even if it's already there, drag it somewhere else then back). Press `V` on your keyboard to add the visibility keyframe.
 > 
@@ -205,10 +208,12 @@ Play your animation one more time to make sure it looks right.
 
 ##Cleaning up
 
-The title labels and play button are still visible. We should get rid of them in our `Ready` timeline so the screen looks cleaner and it is clear that you can start playing at any time.
+The title labels and play button are still visible while our HUD elements are not. We should change this in our `Ready` timeline so it is clear that you can start playing at any time. 
 
 > [action]
-> Add a visibility keyframe to the play button and each title label at `00:00:00`. Consult the steps above if you don't remember how to do this.
+> Uncheck the visibility boxes for your title node and play button.
+> 
+> Check the visibility boxes for your life bar and score label. When creating a new timeline, element states are derived from the previous timeline selected, so the life bar and score label will still be invisible from our creation of the `InitialLaunch` timeline.
 
 #Coding the transitions
 
