@@ -88,10 +88,11 @@ We want the title to drop in from the top to make the start of the game a bit mo
 > [action]
 > Edit the `DefaultTimeline` to be named `InitialLaunch`.
 
+
 We will be using keyframe animations to bring the menu in. To do this, we'll need to set a keyframe with the title offscreen and another with the title on screen.
 
 > [action]
-> Start off by adding a position keyframe at `00:00:00`. To do this, select the node containing both title labels. Drag the animation scrubber to `00:00:00` (even if it's already there, drag it somewhere else then back). Press `P` on your keyboard. 
+> Start off by adding a position keyframe at `00:00:00`. To do this, select the node containing both title labels. Drag the animation scrubber to `00:00:00` (even if it's already there, drag it somewhere else then back). On your keyboard, press `P`. 
 > 
 <!--gif, get mouseposé from mac app store to display clicks & keystrokes-->
 > ![]()
@@ -208,12 +209,19 @@ Play your animation one more time to make sure it looks right.
 
 ##Cleaning up
 
-The title labels and play button are still visible while our HUD elements are not. We should change this in our `Ready` timeline so it is clear that you can start playing at any time. 
+The title labels and play button are still visible while our HUD elements are not. In SpriteBuilder, the first visibility keyframe sets the element's visibility to true, regardless of its current state. This means that simply adding a visibility keyframe in the `Ready` timeline to the elements we want invisible will not work. Instead, let's revisit `InitialLaunch` to give the title labels and play button the proper behavior.
+
+
+<!--We should change this in our `Ready` timeline so it is clear that you can start playing at any time. -->
 
 > [action]
-> Uncheck the visibility boxes for your title node and play button.
+> Switch to the `InitialLaunch` timeline and uncheck the *Visibility* property for the node containing the title labels and play button. For each of those elements, go to the timeline and place a visibility keyframe at `00:00:00` by pressing `V`.
 > 
-> Check the visibility boxes for your life bar and score label. When creating a new timeline, element states are derived from the previous timeline selected, so the life bar and score label will still be invisible from our creation of the `InitialLaunch` timeline.
+> 
+> [action] Return to the `Ready` timeline. Add a visibility keyframe to the elements you want to be visible during this animation - namely `life_bg` and `scoreLabel`.
+> 
+
+Doing this makes the screen look cleaner and it is clear that you can start playing at any time.
 
 #Coding the transitions
 
