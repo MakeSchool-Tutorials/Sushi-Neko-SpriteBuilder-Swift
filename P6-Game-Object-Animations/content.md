@@ -3,6 +3,16 @@ title: "Getting fancy with more animations"
 slug: game-object-animations
 ---     
 
-#Just regular Markdown
+#Animating the cat
 
-Part 2 to be finished soon!
+##Setting up the timelines
+
+##Swipe animation
+
+#Animating the sushi rolls
+
+#Triggering the Animations From Code
+
+##Cat swipes
+
+##Flying sushi

@@ -3,6 +3,14 @@ title: "Finishing up the game"
 slug: game-over-screen
 ---     
 
-#Just regular Markdown
+#Designing the Game Over Popup
 
-Part 2 to be finished soon!
+##Laying it out
+
+##Drop down animation
+
+#Coding the Game Over Popup
+
+##Triggering the popup
+
+##Setting the score
