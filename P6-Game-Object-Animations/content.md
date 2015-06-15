@@ -28,6 +28,8 @@ Now we can add our animation!
 > Double click the first keyframe and set its *value* to `character2.png`. Double click the second keyframe and set its *value* to `character3.png`.
 > 
 
+![](swipeAnimation_cat.gif)
+
 Play the animation to check it out!
 
 #Animating the sushi rolls
@@ -59,6 +61,7 @@ Since you already have quite a bit of experience with keyframe animation, we'll 
 > Now create position AND rotation (use `R` instead of `P`) keyframes on `roll` at `00:00:00` and `00:00:24`. Set the *value* of the second position keyframe to `(400, 0)`. Set the *value* of the second rotation keyframe to `180`.
 > 
 > Move the scrubber to `00:00:25` and Option + Click in the `Callbacks` row of the timeline. This will allow you to call a method at a specific time in an animation. Double click the new callback keyframe and set its *value* to `removeFromParent`. The piece will now be removed from the scene when its animation is finished.
+> ![](fromLeft_callback.gif)
 
 ##Animating FromRight
 
@@ -81,6 +84,8 @@ We originally built our game without animations, so we didn't need to think abou
 
 > [solution]
 > Drag `left` and `right` to be children of `roll` on the animation timeline.
+> 
+> ![](perfectingAnimation.gif)
 
 Be sure to uncheck the chopsticks' visibility when you're done!
 
@@ -148,3 +153,5 @@ Now we just need to trigger it appropriately.
 >       addHitPiece(piece.side)
 
 Run the game to check out all your fancy animations!
+
+![](endResult.gif)

@@ -127,3 +127,5 @@ This code sets up the code connections we added in SpriteBuilder. It also create
 > The restart button will trigger `restart()` in `MainScene` since we set its owner as `self`.
 
 Congrats! You have finished a fully polished clone of Timberman!
+
+![](gameoverDropdown.gif)

@@ -30,7 +30,7 @@ You'll see a fitting font in your asset pack but it doesn't quite match the pixe
 > 
 > Set the node's *content size* to `(100%, 100%)` and *position* to `(0, 0)`. Add a pixelate effect with a *value* of `3`.
 > 
-> ![]()
+> ![](effectNodes.png)
 
 Later you can experiment with other effects but this is what we liked best for the style of Sushi Neko.
 
@@ -60,7 +60,7 @@ Now let's build a title for our game. We didn't include an asset so we'll be usi
 > 
 >
 > 
-> ![]()
+> ![](addingTitle_node.png)
 > 
 > Drag in two LabelTTF nodes as children of the node you just added. For the first LabelTTF, set its:
 > 
@@ -72,7 +72,7 @@ Now let's build a title for our game. We didn't include an asset so we'll be usi
 > - *outline color* to `black`
 > - *outline width* to `8`
 > 
-> ![]()
+> ![](addingTitle_label.png)
 > 
 > For the second LabelTTF, set its:
 > 
@@ -95,17 +95,14 @@ We will be using keyframe animations to bring the menu in. To do this, we'll nee
 > Start off by adding a position keyframe at `00:00:00`. To do this, select the node containing both title labels. Drag the animation scrubber to `00:00:00` (even if it's already there, drag it somewhere else then back). On your keyboard, press `P`. 
 > 
 <!--gif, get mouseposé from mac app store to display clicks & keystrokes-->
-> ![]()
+> ![](animatingTitle_addingFirstKeyframe.gif)
 > 
 > You can also add keyframes and view their keyboard shortcuts from the *Animation* menu.
 > 
-> ![]()
+> ![](animatingTitle_animationsMenu.png)
 > 
-> Drag the scrubber to `00:00:25` and press `P` again to add another position keyframe.
-> 
-> ![]()
-> 
-> Double click the first keyframe and set its *value* to `(50%, -225)`.
+> Drag the scrubber to `00:00:25` and press `P` again to add another position keyframe. Double click the first keyframe and set its *value* to `(50%, -225)`.
+> ![](animatingTitle_addingSecondKeyframe.gif)
 
 Try pressing play to see how it looks! It looks good but it would look even better with some easing! 
 
@@ -117,7 +114,7 @@ Try pressing play to see how it looks! It looks good but it would look even bett
 
 Play the animation again to see the difference. Feel free to mess with the interpolation and see if you find something you like better!
 
-![]()
+![](animatingTitle_drop.gif)
 
 ##Play button
 
@@ -174,14 +171,14 @@ The tap indicators need to be animated on a separate timeline play their animati
 > [action]
 > Create a new timeline named `Ready` with a length of `00:01:00`. Chain this timeline to itself so that it repeats endlessly.
 > 
-> ![]()
+> ![](creatingNewTimeline.gif)
 
 ##Animating the indicators
 
 Let's get started with our animation. We want the tap buttons to move back and forth from left to right so they catch the player's attention.
 
 > [action]
-> First, we'll need to add some visibility keyframes. Visibility keyframes flip the visibility from its usual state. In this case, it will make the tap indicators visible since they're not visible by default.
+> First, we'll need to add some visibility keyframes. The first visibility keyframe sets the element's visibility to true, regardless of its current state.
 > 
 > To do this, select `tap_left`. Drag the animation scrubber to `00:00:00` (even if it's already there, drag it somewhere else then back). Press `V` on your keyboard to add the visibility keyframe.
 > 
@@ -196,7 +193,7 @@ Our initial position is a good starting point for the left-most position during 
 
 Play the animation to check it out! You can enable the looper if you want to see it loop like it will in the simulator.
 
-![]()
+![](animatingIndicators_left.gif)
 
 Now we need to repeat the steps above for `tap_right`.
 
@@ -205,11 +202,11 @@ Now we need to repeat the steps above for `tap_right`.
 
 Play your animation one more time to make sure it looks right.
 
-![]()
+![](animatingIndicators_right.gif)
 
 ##Cleaning up
 
-The title labels and play button are still visible while our HUD elements are not. In SpriteBuilder, the first visibility keyframe sets the element's visibility to true, regardless of its current state. This means that simply adding a visibility keyframe in the `Ready` timeline to the elements we want invisible will not work. Instead, let's revisit `InitialLaunch` to give the title labels and play button the proper behavior.
+The title labels and play button are still visible while our HUD elements are not. As mentioned before, in SpriteBuilder, the first visibility keyframe sets the element's visibility to true, regardless of its current state. This means that simply adding a visibility keyframe in the `Ready` timeline to the elements we want invisible will not work. Instead, let's revisit `InitialLaunch` to give the title labels and play button the proper behavior.
 
 
 <!--We should change this in our `Ready` timeline so it is clear that you can start playing at any time. -->
@@ -217,6 +214,7 @@ The title labels and play button are still visible while our HUD elements are no
 > [action]
 > Switch to the `InitialLaunch` timeline and uncheck the *Visibility* property for the node containing the title labels and play button. For each of those elements, go to the timeline and place a visibility keyframe at `00:00:00` by pressing `V`.
 > 
+> ![](cleaningUp_hideButtonTitle.gif)
 > 
 > [action] Return to the `Ready` timeline. Add a visibility keyframe to the elements you want to be visible during this animation - namely `life_bg` and `scoreLabel`.
 > 
@@ -328,4 +326,5 @@ The only thing left to do is get `restart` working correctly again. As it's curr
 
 Try running the game to see how it looks!
 
+<!--Take a gif of what the project looks like and put it here-->
 ![]()
