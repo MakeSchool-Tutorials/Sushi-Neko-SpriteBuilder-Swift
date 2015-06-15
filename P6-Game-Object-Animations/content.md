@@ -26,6 +26,7 @@ Now we can add our animation!
 > Move the scrubber to `00:00:01` and press `F` again to add another sprite frame keyframe.
 > 
 > Double click the first keyframe and set its *value* to `character2.png`. Double click the second keyframe and set its *value* to `character3.png`.
+> 
 
 Play the animation to check it out!
 
@@ -40,7 +41,7 @@ This movement will require a bit more complex of an animation. We'll actually ha
 We need a separate node to handle vertical movement. If we animated everything from a single node, it would be impossible to get the correct movement since we want linear interpolation in the x-direction and non-linear interpolation in the y-direction (think about a ball moving when thrown in an arc).
 
 > [action]
-> Drag in a basic node and set its *position* to be `(50%, 0)`. Change `roll` to be a child of this new node.
+> Drag in a basic node and set its *position* to be `(50%, 0)`. Change `roll` to be a child of this new node. Change `roll`'s anchor point to `(.5, 0)` to ensure it's in the middle of the screen.
 
 We'll be using this new node for vertical movement and animate `roll` for horizontal movement.
 
@@ -64,13 +65,24 @@ Since you already have quite a bit of experience with keyframe animation, we'll 
 FromRight is very similar to FromLeft.
 
 > [action]
-> Create a new timeline named `FromLeft` with a duration of `00:01:00`.
+> Create a new timeline named `FromRight` with a duration of `00:01:00`.
 > 
 > Create position keyframes on the new node at `00:00:00`, `00:00:12`, and `00:00:24`. Change the middle keyframe's *value* to `(50%, 100)`. Add `Ease Out` interpolation to the first half and `Ease In` interpolation to the second half of the animation.
 > 
 > Now create position AND rotation keyframes on `roll` at `00:00:00` and `00:00:24`. Set the *value* of the second position keyframe to `(-400, 0)`. Set the *value* of the second rotation keyframe to `-180`.
 > 
 > Move the scrubber to `00:00:25` and Option + Click in the `Callbacks` row of the timeline. Double click the new callback keyframe and set its *value* to `removeFromParent`.
+
+
+##Perfecting the Animation
+Before you move on, check the visibility for the `left` and `right` chopsticks so you can see them both, then run one of the rolling animations. Why aren't the chopsticks rolling with the sushi?
+
+We originally built our game without animations, so we didn't need to think about relative positioning. However, now that things are moving around, we *do* need to think about relative positioning. Let's look back at what we just did; we made the sushi roll a child of a `CCNode`. When we moved the node, the sushi roll followed. What do we need to do to make the chopsticks move with the roll?
+
+> [solution]
+> Drag `left` and `right` to be children of `roll` on the animation timeline.
+
+Be sure to uncheck the chopsticks' visibility when you're done!
 
 #Triggering the Animations From Code
 
@@ -104,7 +116,7 @@ Let's create a helper method to call whenever a sushi piece is successful hit.
 > 
 >       func addHitPiece(obstacleSide: Side) {
 >           var flyingPiece: Piece = CCBReader.load("Piece") as! Piece
->           flyingPiece.position = piecesNode.positionInPoints
+>           flyingPiece.position = addPiecePosition!
 >
 >           var animationName = character.side == .Left ? "FromLeft" : "FromRight"
 >           flyingPiece.animationManager.runAnimationsForSequenceNamed(animationName)
@@ -113,7 +125,22 @@ Let's create a helper method to call whenever a sushi piece is successful hit.
 >           self.addChild(flyingPiece)
 >       }
 
-This method loads in a new piece, runs the correct animation, and adds it to the scene. Now we just need to trigger it appropriately.
+This method loads in a new piece, runs the correct animation, and adds it to the scene. However, you'll notice we haven't yet defined `addPiecePosition`:
+> [action]
+> Add the following line to `MainScene` with your other instance variable declarations:
+> 		
+> 		var addPiecesPosition: CGPoint?
+> 
+> Add the following method above `didLoadFromCCB()` in `MainScene`:
+> 
+> 		override func onEnter() {
+   	 		super.onEnter()
+    		addPiecesPosition = piecesNode.positionInPoints
+  		}
+>
+> The order of method calls at the creation of a SpriteBuilder object is `init()` -> `didLoadFromCCB()` -> `onEnter()`. Defining `addPiecesPosition` in `onEnter()` ensures that the position value has been fully defined for all of our nodes.
+
+Now we just need to trigger it appropriately.
 
 > [action]
 > After `var piece = pieces[pieceIndex]` in `stepTower` add:

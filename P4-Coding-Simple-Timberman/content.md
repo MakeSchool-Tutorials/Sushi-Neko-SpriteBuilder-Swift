@@ -79,6 +79,7 @@ We'll also need access to one of those code connections we added in SpriteBuilde
 >       var pieces: [Piece] = []
 >
 > Remember, we always use *implicitly unwrapped optionals* (the !) for code connections from SpriteBuilder.
+> 
 
 Inside the `didLoadFromCCB` method, load in ten instances of `Piece.ccb` and position them so they build up a tower. Add each piece as a child of `piecesNode` and use the `contentSizeInPoints` of the piece to calculate the offset in its y-position. Ten instances of `Piece.ccb` should be enough to cover the screen of any device you build on.
 

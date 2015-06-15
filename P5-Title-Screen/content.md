@@ -292,12 +292,14 @@ This method gets trigger when you press the play button. It updates the game sta
   
 ##Tap to play
 
-Now that we can press the play button and get to the `.Ready` state, we need to find a way to be able to trigger a move to the `.Playing` state to start the timer.
+Now that we can press the play button and get to the `.Ready` state, we need to find a way to be able to trigger a move to the `.Playing` state to start the timer. We also want to make sure the only time we can play is after we press the play button.
 
 > [action]
-> Add the following under `if gameState == .GameOver { return }` in `touchBegan`:
+> Replace `if gameState == .GameOver { return }` with the following two lines `touchBegan`:
 > 
->       if gameState == .Ready { start() }
+>       if gameState == .GameOver || gameState == .Title { return }
+> 		if gameState == .Ready { start() }
+> 			
 > 
 > Add the following method:
 > 
