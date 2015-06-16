@@ -155,3 +155,18 @@ Now we just need to trigger it appropriately.
 Run the game to check out all your fancy animations!
 
 ![](endResult.gif)
+
+##Perfecting the Animation
+
+All of our animations look great, but the stack still drops instantaneously - there is never a gap where you just punched the sushi out. We can fix that in code as well:
+
+> [action]
+> Replace the `piecesNode.position = ccpSub(piecesNode.position,
+      CGPoint(x: 0, y: piece.contentSize.height))` in `stepTower()` with:
+>
+>		var movePiecesDown = CCActionMoveBy(duration: 0.15, position: CGPoint(x: 0, y: -piece.contentSize.height))
+> 		piecesNode.runAction(movePiecesDown)
+
+All this does is move the stack down over the course of 0.15 seconds, but the result is a much more fluid looking game.
+
+![](fluidEndResult.gif)
