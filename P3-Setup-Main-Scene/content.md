@@ -23,9 +23,9 @@ Now add the background image by dragging `background.png` onto the scene. Set it
 
 Drag `Character.ccb` onto the scene. Set its *position* to `(50%, 0)` and create a `doc root var` code connection to `character`.
 
-**Setup the Sushi Stack**
+**Set up the Sushi Stack**
 
-We are about to setup the necessary nodes for the sushi stack. First we'll add a roll and position its bottom slightly off the screen. Drag `Piece.ccb` onto the scene. Set its *position* to `(50%, -30)` and its *anchor point* to `(0.5, 0)`. This roll will serve as our base (similar to the tree stump in Timberman). 
+We are about to set up the necessary nodes for the sushi stack. First we'll add a roll and position its bottom slightly off the screen. Drag `Piece.ccb` onto the scene. Set its *position* to `(50%, -30)` and its *anchor point* to `(0.5, 0)`. This roll will serve as our base (similar to the tree stump in Timberman).
 
 Now we'll add an empty *CCNode* and position it so we have a reference point to programmatically build up our sushi stack. Drag in a *Node* from the *node library* pane on the left side of SpriteBuilder onto the scene. Set its *position* to `(50%, 28)` and its *anchor point* to `(0.5, 0)`. Create a `doc root var` code connection to `piecesNode` in the empty *CCNode* so we can use it programmatically later.
 
@@ -51,7 +51,7 @@ We need to be able to change the label with each obstacle the player successfull
 
 **Add a Restart Button**
 
-It's easier to setup and position a button from SpriteBuilder than doing it from code. Whenever a game over is triggered, we'll make the button visible.
+It's easier to set up and position a button from SpriteBuilder than doing it from code. Whenever a game over is triggered, we'll make the button visible.
 
 Drag a *Button* from the *node library* pane on the left side of SpriteBuilder onto the scene. Set its *position* to `(50%, 50%)` and *title* to `Restart`.
 

@@ -79,7 +79,7 @@ We'll also need access to one of those code connections we added in SpriteBuilde
 >       var pieces: [Piece] = []
 >
 > Remember, we always use *implicitly unwrapped optionals* (the !) for code connections from SpriteBuilder.
-> 
+>
 
 Inside the `didLoadFromCCB` method, load in ten instances of `Piece.ccb` and position them so they build up a tower. Add each piece as a child of `piecesNode` and use the `contentSizeInPoints` of the piece to calculate the offset in its y-position. Ten instances of `Piece.ccb` should be enough to cover the screen of any device you build on.
 
@@ -135,10 +135,10 @@ Before we can actually detect touches, we need to complete the code connection f
 
 > [action]
 > Add this near where you declared the other instance variables:
-> 
+>
 >       weak var character: Character!
 > Code connection variables should use the keyword weak because they only mark a reference to rather than an ownership of the object they are pointing to.
-> 
+>
 > Add this to the end of `didLoadFromCCB` in `MainScene.swift`:
 >
 >       userInteractionEnabled = true
@@ -182,7 +182,7 @@ Before we start randomizing the obstacle side, we should declare an enum to add 
 
 Now we can refer to the type `Side` with three different values: Left, Right, and None. This will make our lives a lot easier throughout our code.
 
-Let's setup the `Piece` class. We need to complete the code connections to `left` and `right` (our chopstick sprites from SpriteBuilder) and add a `side` variable to keep track of which obstacle is showing. We want this variable to trigger the correct visibility of `left` and `right` each time it changes.
+Let's set up the `Piece` class. We need to complete the code connections to `left` and `right` (our chopstick sprites from SpriteBuilder) and add a `side` variable to keep track of which obstacle is showing. We want this variable to trigger the correct visibility of `left` and `right` each time it changes.
 
 > [action]
 > Open up `Piece.swift` and add this to the top of the class declaration:
@@ -301,9 +301,9 @@ We'll add more to the `stepTower` method later on but go ahead and give this ver
 > You might have noticed that `pieceIndex` hasn't be declared yet. Make sure to add the following near your other instance variables:
 >
 >       var pieceIndex: Int = 0
-> 
+>
 > Don't forget to call stepTower() every time you touch the screen! Add the method call to the bottom of your touch began function:
-> 
+>
 > 		override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
 			...
 			stepTower()
@@ -404,7 +404,7 @@ We are going to use property observers to update the `scaleX` of our `lifeBar` a
 >
 >       weak var lifeBar: CCSprite!
 >
-> We also want to create an instance variable to track time left and setup a property observer on it to change `scaleX` on `lifeBar` whenever it changes. Add the following near your other instance variables:
+> We also want to create an instance variable to track time left and set up a property observer on it to change `scaleX` on `lifeBar` whenever it changes. Add the following near your other instance variables:
 >
 >       var timeLeft: Float = 5 {
 >           didSet {

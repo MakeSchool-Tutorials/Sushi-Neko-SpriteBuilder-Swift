@@ -24,9 +24,7 @@ After we finish this basic but playable version we will spend some time polishin
 
 <!--TODO: ADD GIF-->
 
-<!--TODO: ADD GITHUB REPO-->
-
-The solution to this [tutorial is available on GitHub](https://github.com/MakeSchool):
+The solution to this [tutorial is available on GitHub](https://github.com/MakeSchool/SushiNeko-SpriteBuilder-Swift):
 
 ![](https://static.makegameswith.us/gamernews_images/TVZ2mTmQpl/labtocat.png)
 

@@ -5,8 +5,7 @@ slug: creating-cat-sushi
 
 **Adding Artwork**
 
-<!--TODO: ADD ART PARK LINK-->
-To get started, [download our art pack](). Add the art pack you just downloaded to your SpriteBuilder project by first unpacking the archive, then drag the folder onto the File View in SpriteBuilder (lower left area where you can see files & folders):
+To get started, [download our art pack](https://raw.githubusercontent.com/MakeSchool-Tutorials/Sushi-Neko-SpriteBuilder-Swift/master/P2-Creating-Cat-Sushi/assets.zip). Add the art pack you just downloaded to your SpriteBuilder project by first unpacking the archive, then drag the folder onto the File View in SpriteBuilder (lower left area where you can see files & folders):
 
 <!--MAKE THIS A GIF?-->
 ![](./SpriteBuilder_Assets.png)
@@ -19,7 +18,7 @@ Now that we have art, create a new *CCB-File* (File > New > File) named `Charact
 
 Set its *sprite frame property* to `assets/character1.png`.
 
-Now set the *anchor point* to `(1, 0)` so that it is positioned relative to its bottom-right corner. We'll see how this makes things easier when we setup the *MainScene*. When you're done, it should look like this:
+Now set the *anchor point* to `(1, 0)` so that it is positioned relative to its bottom-right corner. We'll see how this makes things easier when we set up the *MainScene*. When you're done, it should look like this:
 
 ![](./SpriteBuilder_Cattributes.png)
 
@@ -54,7 +53,7 @@ Also create a `doc root var` code connection to `left` so that we can access it 
 
 ![](./SpriteBuilder_Piece_Left_CC.png)
 
-Finally let's setup the right chopstick. Set its *reference corner* to the `bottom-right`. This changes which corner its *position* is based upon. Set its *position* to `(0, 50)`. Also set its *anchor point* to `(0, 0.5)` and check *Flip X*.
+Finally let's set up the right chopstick. Set its *reference corner* to the `bottom-right`. This changes which corner its *position* is based upon. Set its *position* to `(0, 50)`. Also set its *anchor point* to `(0, 0.5)` and check *Flip X*.
 
 ![](./SpriteBuilder_Piece_Right.png)
 
