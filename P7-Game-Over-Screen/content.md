@@ -126,4 +126,20 @@ This code sets up the code connections we added in SpriteBuilder. It also create
 > [info]
 > The restart button will trigger `restart()` in `MainScene` since we set its owner as `self`.
 
-Congrats! You have finished a fully polished clone of Timberman!
+![](gameoverDropdown.gif)
+
+##Perfecting your project
+
+Congrats! You've created a fun game complete with great looking animations. However, with a few finishing touches, you can make your game look even better!
+
+> [action]
+> 
+>  In SpriteBuilder, open `MainScene.ccb`. Move `piecesNode` to `(50%, 143.0)`.
+> 
+> Move `roll` to `(50%, 85.0)`.
+> 
+> Move `Character` to `(50%, 115.0)`.
+
+![](beforeAfterPolish.png)
+
+As you can see, the small changes make your game look a lot better. Keep in mind during future projects that the small details can be the difference between a good project and a great-looking, fully-polished project.

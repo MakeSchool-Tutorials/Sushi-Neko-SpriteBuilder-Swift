@@ -7,7 +7,7 @@ slug: setup-main-scene
 
 Open up `MainScene.ccb`. You'll notice that it defaults to landscape mode. We'll change the project settings before we get started.
 
-Open the project settings and change the *orientation*:
+Open the project settings (File > Project Settings) and change the *orientation*:
 
 ![](./SpriteBuilder_Orientation.png)
 
@@ -25,21 +25,19 @@ Drag `Character.ccb` onto the scene. Set its *position* to `(50%, 0)` and create
 
 **Setup the Sushi Stack**
 
-We are about to setup the necessary nodes for the sushi stack. First we'll add a roll and position its bottom slightly off the screen. This roll will serve as our base (similar to the tree stump in Timberman). Then we'll add an empty *CCNode* and position it so we have a reference point to programmatically build up our sushi stack.  Create a `doc root var` code connection to `piecesNode` in the empty *CCNode* so we can use it programmatically later.
+We are about to setup the necessary nodes for the sushi stack. First we'll add a roll and position its bottom slightly off the screen. Drag `Piece.ccb` onto the scene. Set its *position* to `(50%, -30)` and its *anchor point* to `(0.5, 0)`. This roll will serve as our base (similar to the tree stump in Timberman). 
 
-Drag `Piece.ccb` onto the scene. Set its *position* to `(50%, -30)` and its *anchor point* to `(0.5, 0)`.
-
-Drag in a *Node* from the *node library* pane on the left side of SpriteBuilder onto the scene. Set its *position* to `(50%, 28)` and its *anchor point* to `(0.5, 0)`.
+Now we'll add an empty *CCNode* and position it so we have a reference point to programmatically build up our sushi stack. Drag in a *Node* from the *node library* pane on the left side of SpriteBuilder onto the scene. Set its *position* to `(50%, 28)` and its *anchor point* to `(0.5, 0)`. Create a `doc root var` code connection to `piecesNode` in the empty *CCNode* so we can use it programmatically later.
 
 Your scene and timeline should now look like this:
 
 ![](./SpriteBuilder_MainScene_Layout.png)
 
-To complete the MainScene we still need to add a score label, restart button, and timer bar.
+The game still needs a basic heads up display (called a HUD), so next we'll add a score label, restart button, and timer bar.
 
 **Add a Score Label**
 
-Drag a *Label TTF* from the *node library* pane on the left side of SpriteBuilder onto the scene. Set its *position* to `(50%, 65%)`. Set the following properties:
+Drag a *Label TTF* from the *node library* pane on the left side of SpriteBuilder onto the scene and set its *position* to `(50%, 65%)`. Set the following properties:
 
 1. *Label text* to `0`
 2. *Font name* to `Courier`
@@ -49,7 +47,7 @@ Drag a *Label TTF* from the *node library* pane on the left side of SpriteBuilde
 
 ![](./SpriteBuilder_MainScene_Score.png)
 
-We'll need to be able to change the label with each obstacle the player successfully passes so create a `doc root var` code connection to `scoreLabel`.
+We need to be able to change the label with each obstacle the player successfully passes, so create a `doc root var` code connection to `scoreLabel`.
 
 **Add a Restart Button**
 
@@ -75,4 +73,4 @@ Your scene and timeline should now look like this:
 
 ![](./SpriteBuilder_MainScene_Life.png)
 
-Congratulations! You have finished setting up everything in SpriteBuilder for our basic gameplay demo. We'll come back to SpriteBuilder to polish up things after we get the code working.
+Congratulations! You have finished setting up everything in SpriteBuilder for our basic gameplay demo. We'll come back to SpriteBuilder to polish things up after we get the code working.
