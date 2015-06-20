@@ -3,8 +3,6 @@ title: "Adding a title screen"
 slug: title-screen
 ---
 
-#Polishing the Gameplay
-
 Now it's time to start turning this into a fully polished game. In the next three steps we will:
 
 <!--#2 is awkwardly phrased-->
@@ -15,13 +13,9 @@ Now it's time to start turning this into a fully polished game. In the next thre
 5. Animate the sushi pieces with a keyframe animation
 6. Add a game over screen with a score recap
 
-##Getting started
-
 We will need two different animation timelines for our `MainScene`. One for the title screen and another for the tap indicators.
 
-#Adding a Title Screen
-
-##Effect nodes
+#Effect nodes
 
 You'll see a fitting font in your asset pack but it doesn't quite match the pixelated theme of the game. We can fix this with an effect node.
 
@@ -34,7 +28,7 @@ You'll see a fitting font in your asset pack but it doesn't quite match the pixe
 
 Later you can experiment with other effects but this is what we liked best for the style of Sushi Neko.
 
-##Updating the score label
+#Updating the score label
 You've probably noticed that our score label looks a little out of place. Let's fix it!
 
 > [action]
@@ -46,7 +40,7 @@ You've probably noticed that our score label looks a little out of place. Let's 
 >
 
 
-##Adding a title
+#Adding a title
 
 Now let's build a title for our game. We didn't include an asset so we'll be using LabelTTF nodes.
 
@@ -81,7 +75,7 @@ Now let's build a title for our game. We didn't include an asset so we'll be usi
 > - other font properties to match the previous label
 >
 
-##Animating the title
+#Animating the title
 
 We want the title to drop in from the top to make the start of the game a bit more dynamic. First, let's set up our timeline.
 
@@ -116,7 +110,7 @@ Play the animation again to see the difference. Feel free to mess with the inter
 
 ![](animatingTitle_drop.gif)
 
-##Play button
+#Play button
 
 We'll also need a play button now so that the player can move past the title screen.
 
@@ -130,7 +124,7 @@ We'll also need a play button now so that the player can move past the title scr
 
 The `ready` function will be used to change the `MainScene` animation to the next timeline we create.
 
-##Cleaning up
+#Cleaning up
 
 The life bar and score label are currently visible. Let's hide them to make the launch look a bit cleaner.
 
@@ -142,9 +136,7 @@ It's also good practice to name objects in your timeline with relevant names. Yo
 
 ![](timeline-names.png)
 
-#Tap Indicators
-
-##Adding the tap sprites
+#Adding the tap sprites
 
 We need to get our tap sprites on the screen before we can animate them.
 
@@ -164,7 +156,7 @@ We need to get our tap sprites on the screen before we can animate them.
 >
 > Uncheck `Visible` for both `tap_left` and `tap_right`.
 
-##Creating a new timeline
+#Creating a new timeline
 
 The tap indicators need to be animated on a separate timeline play their animation after the user taps the play button we added earlier.
 
@@ -173,7 +165,7 @@ The tap indicators need to be animated on a separate timeline play their animati
 >
 > ![](creatingNewTimeline.gif)
 
-##Animating the indicators
+#Animating the indicators
 
 Let's get started with our animation. We want the tap buttons to move back and forth from left to right so they catch the player's attention.
 
@@ -204,7 +196,7 @@ Play your animation one more time to make sure it looks right.
 
 ![](animatingIndicators_right.gif)
 
-##Cleaning up
+#Cleaning up
 
 The title labels and play button are still visible while our HUD elements are not. As mentioned before, in SpriteBuilder, the first visibility keyframe sets the element's visibility to true, regardless of its current state. This means that simply adding a visibility keyframe in the `Ready` timeline to the elements we want invisible will not work. Instead, let's revisit `InitialLaunch` to give the title labels and play button the proper behavior.
 
@@ -225,7 +217,7 @@ Doing this makes the screen look cleaner and it is clear that you can start play
 
 Now that we have everything set up in SpriteBuilder, open up your project in Xcode so we can add the code needed to get this working.
 
-##Game state
+#Game state
 
 We first want to reconsider the way we track game state. Right now we only have two states: playing and game over. With a title screen we'll probably want a few more
 
@@ -262,7 +254,7 @@ We first want to reconsider the way we track game state. Right now we only have 
 >
 >       gameState = .GameOver
 
-##Play button
+#Play button
 
 Now let's get our play button working.
 
@@ -288,7 +280,7 @@ This method gets trigger when you press the play button. It updates the game sta
 > [info]
 > `cascadeOpacityEnabled` is set to `false` by default. This means that opacity changes are not passed on to a nodes children unless you set it to true.
 
-##Tap to play
+#Tap to play
 
 Now that we can press the play button and get to the `.Ready` state, we need to find a way to be able to trigger a move to the `.Playing` state to start the timer. We also want to make sure the only time we can play is after we press the play button.
 
@@ -307,7 +299,7 @@ Now that we can press the play button and get to the `.Ready` state, we need to 
 >           tapButtons.runAction(CCActionFadeOut(duration: 0.2))
 >       }
 
-##Restart
+#Restart
 
 The only thing left to do is get `restart` working correctly again. As it's currently written, restart will load the title screen again. This doesn't make sense for the flow of the game. It would be better to go straight to the `.Ready` state.
 

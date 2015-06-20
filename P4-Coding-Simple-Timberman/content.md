@@ -3,8 +3,6 @@ title: "Move on with this tutorial!"
 slug: coding-simple-timberman
 ---
 
-**Create the Code Files**
-
 We'll need three Swift classes for our game right now:
 
 1. `MainScene.swift`
@@ -35,7 +33,7 @@ Follow the same steps to create `Piece.swift` and define the `Piece` class as a 
 >
 >       }
 
-**Testing the project**
+#Testing the project
 
 You should now be able to run the project in Xcode. If you had tried earlier it would have crashed as soon as it launched because it could not find the `Character` and `Piece` classes.
 
@@ -43,7 +41,7 @@ Hit the run button to try it out. You should launch to the `MainScene` we create
 
 Its time to start filling in our code!
 
-**What's next**
+#What's next
 
 We'll be building the game's code piece by piece. Our plan is to:
 
@@ -55,7 +53,7 @@ We'll be building the game's code piece by piece. Our plan is to:
 6. Get the timer working
 7. Update the score
 
-**Building the Sushi Tower**
+#Building the Sushi Tower
 
 We'll build the sushi tower up in the `didLoadFromCCB` method so that it's added before `MainScene` is shown to the player.
 
@@ -109,7 +107,7 @@ Your game should now look like this when you run it:
 
 Once you have it working, move onto adding touch controls.
 
-**Add Touch Controls**
+#Add Touch Controls
 
 To add touch controls we first need a method we can call to move the `Character` to the right side of the screen and back. We'll be relying on a little trick to make this easy -- setting the `scaleX` to -1 flips a sprite horizontally around its anchor point. Since `Character` already has an anchor point at the center of the screen, we can us this trick to flip it to the other side.
 
@@ -169,7 +167,7 @@ You should now be able to move the character from one side to another and back:
 
 ![](./Simulator_Touch_Detect.gif)
 
-**Randomize Each Obstacle's Side**
+#Randomize Each Obstacle's Side
 
 Before we start randomizing the obstacle side, we should declare an enum to add uniformity to checking sides in code.
 
@@ -263,7 +261,7 @@ Run the game. It should have randomized obstacles now!
 
 ![](./Simulator_Random_Obstacles.png)
 
-**Move the Sushi Tower**
+#Move the Sushi Tower
 
 Our next goal is to get the sushi tower to move downward with each of the player's taps. Once we get that working we'll be able to add in collision detection!
 
@@ -314,7 +312,7 @@ Launch the game and play around a bit. You should have an infinitely looping tow
 
 ![](./Simulator_Random_Obstacles.gif)
 
-**Detect Collisions and Trigger Game Over**
+#Detect Collisions and Trigger Game Over
 
 We already have a variable storing a `Side` in the `Piece` class but we need one in character before we get started. Add a `side` variable to the `Character` class. Also update the `left()` and `right()` methods accordingly.
 
@@ -393,7 +391,7 @@ Now that we short-circuit out of `touchBegan` after a game over, the player can 
 
 The core gameplay is pretty close to completion. The only thing left is the timer and score!
 
-**Get the Timer Working**
+#Get the Timer Working
 
 In Timberman there is a timer constantly counting down. Every successful move adds a little bit of time. You'll trigger a game over for running out of time if you don't play fast enough.
 
@@ -435,7 +433,7 @@ The `didSet` property observer for `timeLeft` clamps the time between 0 and 10. 
 
 The only thing left to do in core gameplay is implementing the score!
 
-**Update the Score**
+#Update the Score
 
 The score implementation is pretty similar the timer. We'll complete the `scoreLabel` code connection. Then we'll set up an instance variable with a `didSet` property observer to track the score and update the `scoreLabel`. Finally, we'll increment `score` at the end of `stepTower`.
 

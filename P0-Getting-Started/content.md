@@ -5,9 +5,7 @@ slug: getting-started
 
 In this tutorial we will build Sushi Neko -- a clone of the popular mobile game [Timberman](https://itunes.apple.com/us/app/timberman/id871809581?mt=8). We will use Apple's new Swift programming language together with SpriteBuilder and Cocos2D.
 
-<!--TODO: UPDATE THIS WITH SWIFT LINK-->
-
-If you aren't familiar with SpriteBuilder you should consider reading our [SpriteBuilder beginner tutorial](https://www.makeschool.com/tutorials/getting-started-with-spritebuilder/) first since this tutorial assumes that you are familiar with basic SpriteBuilder tasks.
+If you aren't familiar with SpriteBuilder you should consider reading our [SpriteBuilder beginner tutorial](https://www.makeschool.com/tutorials/getting-started-with-spritebuilder-and-swift/installing-spritebuilder) first since this tutorial assumes that you are familiar with basic SpriteBuilder tasks.
 
 Throughout this tutorial you will learn many concepts including how to:
 
@@ -15,6 +13,8 @@ Throughout this tutorial you will learn many concepts including how to:
 - use property observers in Swift
 - create complex animations
 - add visual effects
+
+#The gaol
 
 We'll start off by making a "discrete" version of Timberman. The core gameplay will be present but there will be no fancy animations.
 

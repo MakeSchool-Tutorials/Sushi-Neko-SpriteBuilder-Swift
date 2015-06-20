@@ -3,14 +3,12 @@ title: "Creating our character and obstacles"
 slug: creating-cat-sushi
 ---
 
-**Adding Artwork**
-
 To get started, [download our art pack](https://raw.githubusercontent.com/MakeSchool-Tutorials/Sushi-Neko-SpriteBuilder-Swift/master/P2-Creating-Cat-Sushi/assets.zip). Add the art pack you just downloaded to your SpriteBuilder project by first unpacking the archive, then drag the folder onto the File View in SpriteBuilder (lower left area where you can see files & folders):
 
 <!--MAKE THIS A GIF?-->
 ![](./SpriteBuilder_Assets.png)
 
-**Create the Character**
+#Create the character
 
 Now that we have art, create a new *CCB-File* (File > New > File) named `Character.ccb` of type `Sprite`:
 
@@ -28,7 +26,7 @@ We also want to set its *custom class property* to `Character` so that it looks 
 
 Now it's time to create the obstacles!
 
-**Create an Obstacle Piece**
+#Create an obstacle piece
 
 Create a *CCB-File* named `Piece.ccb` of type `CCNode`. We want to create a CCNode so that we can have more control over its animations later on in the tutorial.
 

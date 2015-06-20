@@ -3,11 +3,9 @@ title: "Finishing up the game"
 slug: game-over-screen
 ---
 
-#Designing the Game Over Popup
-
 The last thing left to do is create a game over popup. This will help tie the whole game together.
 
-##Laying it out
+#Laying it out
 
 We'll want to create a new CCB for our game over screen. This will make it a easy to create an independent animation.
 
@@ -68,7 +66,7 @@ Now let's get our resources into this new CCB.
 > [info]
 > Setting the *target* to `owner` allows you to call selectors on a class that is different than of the root node's class. You set the owner when you load in the CCB from code.
 
-##Drop down animation
+#Drop down animation
 
 Now its time to set up our drop down animation.
 
@@ -84,7 +82,6 @@ The content size will now be inherited from its parent. This will be the full sc
 
 #Coding the Game Over Popup
 
-##Triggering the popup
 First we'll need to create a GameOver class.
 
 > [action]
@@ -128,7 +125,7 @@ This code sets up the code connections we added in SpriteBuilder. It also create
 
 ![](gameoverDropdown.gif)
 
-##Perfecting your project
+#Perfecting your project
 
 Congrats! You've created a fun game complete with great looking animations. However, with a few finishing touches, you can make your game look even better!
 

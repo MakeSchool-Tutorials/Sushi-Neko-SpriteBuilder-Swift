@@ -19,8 +19,7 @@ The default SpriteBuilder project comes with one scene (MainScene.ccb). Your emp
 
 ![image](./SpriteBuilder_Empty_Project.png)
 
-Testing your setup
-==================
+#Testing your setup
 
 Let’s make sure everything was generated correctly. Click the publish button (on left side of the toolbar) in SpriteBuilder:
 
