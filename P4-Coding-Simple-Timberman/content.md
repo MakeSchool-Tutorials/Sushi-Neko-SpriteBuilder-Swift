@@ -384,7 +384,7 @@ Try out the game now. You'll realize that a restart button appears, but you can 
 >
 >       func restart() {
 >           var scene = CCBReader.loadAsScene("MainScene")
->           CCDirector.sharedDirector().replaceScene(scene)
+>           CCDirector.sharedDirector().presentScene(scene)
 >       }
 
 Now that we short-circuit out of `touchBegan` after a game over, the player can no longer continue playing after a collision. `restart()` has also been defined so we can try again after losing.

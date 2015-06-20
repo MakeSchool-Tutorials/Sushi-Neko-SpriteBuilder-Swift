@@ -314,7 +314,7 @@ The only thing left to do is get `restart` working correctly again. As it's curr
 >
 >       var transition = CCTransition(fadeWithDuration: 0.3)
 >
->       CCDirector.sharedDirector().replaceScene(scene, withTransition: transition)
+>       CCDirector.sharedDirector().presentScene(scene, withTransition: transition)
 
 Try running the game to see how it looks!
 
