@@ -14,7 +14,7 @@ Throughout this tutorial you will learn many concepts including how to:
 - create complex animations
 - add visual effects
 
-#The gaol
+#The goal
 
 We'll start off by making a "discrete" version of Timberman. The core gameplay will be present but there will be no fancy animations.
 
