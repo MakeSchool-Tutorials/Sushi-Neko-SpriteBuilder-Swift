@@ -306,7 +306,7 @@ The only thing left to do is get `restart` working correctly again. As it's curr
 > [action]
 > Change the body of `restart` to:
 >
->       var mainScene: MainScene = CCBReader.load("MainScene") as! MainScene
+>       var mainScene = CCBReader.load("MainScene") as! MainScene
 >       mainScene.ready()
 >
 >       var scene = CCScene()
@@ -318,5 +318,5 @@ The only thing left to do is get `restart` working correctly again. As it's curr
 
 Try running the game to see how it looks!
 
-<!--Take a gif of what the project looks like and put it here-->
+<!--TODO: take a gif of what the project looks like and put it here-->
 ![]()

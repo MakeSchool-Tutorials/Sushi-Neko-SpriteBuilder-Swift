@@ -87,7 +87,7 @@ Give it a shot then run the project to see if your solution worked.
 > One possible way to write `didLoadFromCCB` is:
 >
 >       for i in 0..<10 {
->           var piece: Piece = CCBReader.load("Piece") as! Piece
+>           var piece = CCBReader.load("Piece") as! Piece
 >
 >           var yPos = piece.contentSizeInPoints.height * CGFloat(i)
 >           piece.position = CGPoint(x: 0, y: yPos)

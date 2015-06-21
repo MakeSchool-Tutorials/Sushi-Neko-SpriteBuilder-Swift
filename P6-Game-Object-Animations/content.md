@@ -118,7 +118,7 @@ Let's create a helper method to call whenever a sushi piece is successful hit.
 > Add the following method to `MainScene`:
 >
 >       func addHitPiece(obstacleSide: Side) {
->           var flyingPiece: Piece = CCBReader.load("Piece") as! Piece
+>           var flyingPiece = CCBReader.load("Piece") as! Piece
 >           flyingPiece.position = addPiecePosition!
 >
 >           var animationName = character.side == .Left ? "FromLeft" : "FromRight"

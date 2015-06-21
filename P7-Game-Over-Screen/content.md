@@ -115,7 +115,7 @@ This code sets up the code connections we added in SpriteBuilder. It also create
 >       func triggerGameOver() {
 >           gameState = .GameOver
 >
->           var gameOverScreen: GameOver = CCBReader.load("GameOver", owner: self) as! GameOver
+>           var gameOverScreen = CCBReader.load("GameOver", owner: self) as! GameOver
 >           gameOverScreen.score = score
 >           self.addChild(gameOverScreen)
 >       }
@@ -140,3 +140,11 @@ Congrats! You've created a fun game complete with great looking animations. Howe
 ![](beforeAfterPolish.png)
 
 As you can see, the small changes make your game look a lot better. Keep in mind during future projects that the small details can be the difference between a good project and a great-looking, fully-polished project.
+
+![](./Final_Game.gif)
+
+#Solution
+
+The solution to this [tutorial is available on GitHub](https://github.com/MakeSchool/SushiNeko-SpriteBuilder-Swift).
+
+![](https://static.makegameswith.us/gamernews_images/TVZ2mTmQpl/labtocat.png)
