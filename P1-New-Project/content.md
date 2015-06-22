@@ -1,13 +1,14 @@
 ---
-title: Create a New Project in SpriteBuilder
+title: Create a new project in SpriteBuilder
 slug: new-project
 ---
 
-Let's start the work on our game by creating a new SpriteBuilder project:
-
-![image](./SpriteBuilder_New_Project.png)
-
-Name your new project “SushiNeko” and change the Primary Language to Swift. Once the project is created, open Finder and take a look at the folder structure of your project. If you can't find your project in Finder, search for it using Spotlight at the top right of your screen.
+> [action]
+> Let's start the work on our game by creating a new SpriteBuilder project:
+>
+> ![image](./SpriteBuilder_New_Project.png)
+>
+> Name your new project “SushiNeko” and change the Primary Language to Swift. Once the project is created, open Finder and take a look at the folder structure of your project. If you can't find your project in Finder, search for it using Spotlight at the top right of your screen.
 
 The folder structure should look something like this:
 

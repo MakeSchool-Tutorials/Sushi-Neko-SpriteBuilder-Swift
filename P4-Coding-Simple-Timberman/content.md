@@ -13,9 +13,12 @@ We'll need three Swift classes for our game right now:
 
 If you haven't already, open up `SushiNeko.xcodeproj`, which you can do by going to File > Open Project In Xcode, or by navigating to it in Finder -- it should be in your `SushiNeko.spritebuilder` folder.
 
-In Xcode, go to `File > New > File`. Select `iOS Source` from the left side and then `Swift File`. Press `Next` and save it as `Character` in your `Source` folder.
+> [action]
+> In Xcode, go to `File > New > File`. Select `iOS Source` from the left side and then `Swift File`. Press `Next` and save it as `Character` in your `Source` folder.
+>
+> Now, define the `Character` class as a subclass of `CCSprite` in the newly created file.
 
-Define the `Character` class as a subclass of `CCSprite` in the newly created file.
+<!-- Make School -->
 
 > [solution]
 > It should look like this:
@@ -59,7 +62,10 @@ We'll build the sushi tower up in the `didLoadFromCCB` method so that it's added
 
 Our goal is to create a tower ten pieces high. When we start moving that tower down, we'll actually move the bottom piece back to the top of the tower instead of removing it from the scene. This will save a bit of processing power since we are reusing the same objects.
 
-Start off by defining `didLoadFromCCB`.
+> [action]
+> Start off by defining `didLoadFromCCB`.
+
+<!-- Make School -->
 
 > [solution]
 > It should look like:
@@ -68,7 +74,12 @@ Start off by defining `didLoadFromCCB`.
 >
 >       }
 
-We'll also need access to one of those code connections we added in SpriteBuilder. Add an instance variable to `MainScene` for `piecesNode`. You should also create an empty Piece array called `pieces`.
+We'll also need access to one of those code connections we added in SpriteBuilder.
+
+> [action]
+> Add an instance variable to `MainScene` for `piecesNode`. You should also create an empty Piece array called `pieces`.
+
+<!-- Make School -->
 
 > [solution]
 > After the opening curly brace in `class MainScene: CCNode {` add:
@@ -77,11 +88,16 @@ We'll also need access to one of those code connections we added in SpriteBuilde
 >       var pieces: [Piece] = []
 >
 > Remember, we always use *implicitly unwrapped optionals* (the !) for code connections from SpriteBuilder.
+
+
+<!-- Make School -->
+
+> [action]
+> Inside the `didLoadFromCCB` method, load in ten instances of `Piece.ccb` and position them so they build up a tower. Add each piece as a child of `piecesNode` and use the `contentSizeInPoints` of the piece to calculate the offset in its y-position. Ten instances of `Piece.ccb` should be enough to cover the screen of any device you build on.
 >
+> Give it a shot then run the project to see if your solution worked.
 
-Inside the `didLoadFromCCB` method, load in ten instances of `Piece.ccb` and position them so they build up a tower. Add each piece as a child of `piecesNode` and use the `contentSizeInPoints` of the piece to calculate the offset in its y-position. Ten instances of `Piece.ccb` should be enough to cover the screen of any device you build on.
-
-Give it a shot then run the project to see if your solution worked.
+<!-- Make School -->
 
 > [solution]
 > One possible way to write `didLoadFromCCB` is:
@@ -111,12 +127,15 @@ Once you have it working, move onto adding touch controls.
 
 To add touch controls we first need a method we can call to move the `Character` to the right side of the screen and back. We'll be relying on a little trick to make this easy -- setting the `scaleX` to -1 flips a sprite horizontally around its anchor point. Since `Character` already has an anchor point at the center of the screen, we can us this trick to flip it to the other side.
 
-Your job is to create two methods in Character.swift:
+> [action]
+> Your job is to create two methods in Character.swift:
+>
+> 1. `left` - move the character to the left side of the screen
+> 2. `right` - move the character to the right side of the screen
+>
+> We'll trigger these methods from `MainScene` when we add in the touch controls.
 
-1. `left` - move the character to the left side of the screen
-2. `right` - move the character to the right side of the screen
-
-We'll trigger these methods from `MainScene` when we add in the touch controls.
+<!-- Make School -->
 
 > [solution]
 > You should have added the following methods to the `Character` class:
@@ -150,7 +169,12 @@ Now we can override `touchBegan` and add in our code.
 >
 >       }
 
-Inside `touchBegan`, try using `touch.locationInWorld().x` and `CCDirector.sharedDirector().viewSize().width` to determine which side of the screen a touch is on. Call `character.left()` and `character.right()` to trigger the correct movements.
+<!-- Make School -->
+
+> [action]
+> Inside `touchBegan`, try using `touch.locationInWorld().x` and `CCDirector.sharedDirector().viewSize().width` to determine which side of the screen a touch is on. Call `character.left()` and `character.right()` to trigger the correct movements.
+
+<!-- Make School -->
 
 > [solution]
 > The `touchBegan` method should look like:
@@ -200,6 +224,8 @@ Let's set up the `Piece` class. We need to complete the code connections to `lef
 >           }
 >       }
 
+<!-- Make School -->
+
 > [info]
 > The `didSet` property observer gets called each time the `side` variable is set. This allows us to trigger the correct visibility of `left` and `right`.
 
@@ -223,6 +249,8 @@ Now fill it in according to our four rules. Remember to return the side that is 
 
 > [info]
 > You can call `CC_RANDOM_0_1()` to randomly generate a number between 0 and 1.
+
+<!-- Make School -->
 
 > [solution]
 > The body of `setObstacle` should look like:
@@ -277,6 +305,8 @@ We'll add more to the `stepTower` method later on but go ahead and give this ver
 > [info]
 > Do not rely on `piecesNode.children`. The order of this array is not guaranteed. It is currently optimized for drawing the contents to the screen but could change in the future.
 
+<!-- Make School -->
+
 > [solution]
 > You should have added a method like this to the `MainScene` class:
 >
@@ -302,10 +332,10 @@ We'll add more to the `stepTower` method later on but go ahead and give this ver
 >
 > Don't forget to call stepTower() every time you touch the screen! Add the method call to the bottom of your touch began function:
 >
-> 		override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-			...
-			stepTower()
-		}
+>       override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+>           ...
+>           stepTower()
+>       }
 
 
 Launch the game and play around a bit. You should have an infinitely looping tower of sushi with randomized obstacles!
@@ -427,6 +457,8 @@ The `didSet` property observer for `timeLeft` clamps the time between 0 and 10. 
 >               triggerGameOver()
 >           }
 >       }
+
+<!-- Make School -->
 
 > [info]
 > It's safe to check if `timeLeft` is equal to zero since we clamped it in the `didSet` property observer.

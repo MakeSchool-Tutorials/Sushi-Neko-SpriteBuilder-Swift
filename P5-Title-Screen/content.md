@@ -5,7 +5,6 @@ slug: title-screen
 
 Now it's time to start turning this into a fully polished game. In the next three steps we will:
 
-<!--#2 is awkwardly phrased-->
 1. Add a title screen
 2. Add a play button
 3. Add tap indicators (how to play)
@@ -88,7 +87,6 @@ We will be using keyframe animations to bring the menu in. To do this, we'll nee
 > [action]
 > Start off by adding a position keyframe at `00:00:00`. To do this, select the node containing both title labels. Drag the animation scrubber to `00:00:00` (even if it's already there, drag it somewhere else then back). On your keyboard, press `P`.
 >
-<!--gif, get mouseposé from mac app store to display clicks & keystrokes-->
 > ![](animatingTitle_addingFirstKeyframe.gif)
 >
 > You can also add keyframes and view their keyboard shortcuts from the *Animation* menu.
@@ -102,6 +100,8 @@ Try pressing play to see how it looks! It looks good but it would look even bett
 
 > [info]
 > Normally, keyframe animations are linearly interpolated. This means that the animation is run at a constant speed. Changing the interpolation will make the animation run at a varied speed.
+
+<!-- Make School -->
 
 > [action]
 > Right click between the two keyframes. Choose `Bounce Out` from the menu. This will add a bouncing interpolation.
@@ -139,8 +139,6 @@ It's also good practice to name objects in your timeline with relevant names. Yo
 #Adding the tap sprites
 
 We need to get our tap sprites on the screen before we can animate them.
-
-<!--I added "making sure it's not a child of the effect node" because two/two times I added it as I was following along, it made itself a child of the effect node.-->
 
 > [action]
 > Drag in a `Node`, making sure it's not a child of the effect node. Set its:
@@ -207,9 +205,11 @@ The title labels and play button are still visible while our HUD elements are no
 > Switch to the `InitialLaunch` timeline and uncheck the *Visibility* property for the node containing the title labels and play button. For each of those elements, go to the timeline and place a visibility keyframe at `00:00:00` by pressing `V`.
 >
 > ![](cleaningUp_hideButtonTitle.gif)
->
-> [action] Return to the `Ready` timeline. Add a visibility keyframe to the elements you want to be visible during this animation - namely `life_bg` and `scoreLabel`.
->
+
+<!-- Make School -->
+
+> [action]
+> Return to the `Ready` timeline. Add a visibility keyframe to the elements you want to be visible during this animation - namely `life_bg` and `scoreLabel`.
 
 Doing this makes the screen look cleaner and it is clear that you can start playing at any time.
 
