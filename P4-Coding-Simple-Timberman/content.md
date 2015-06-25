@@ -248,7 +248,7 @@ To make sure our pieces follow these rules, we'll pass in the obstacle side of t
 Now fill it in according to our four rules. Remember to return the side that is randomly chosen.
 
 > [info]
-> You can call `CC_RANDOM_0_1()` to randomly generate a number between 0 and 1.
+> You can call `CCRANDOM_0_1()` to randomly generate a number between 0 and 1.
 
 <!-- Make School -->
 
