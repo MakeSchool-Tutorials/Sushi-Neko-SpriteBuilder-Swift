@@ -27,3 +27,7 @@ After we finish this basic but playable version we will spend some time polishin
 ![](./Final_Game.gif)
 
 Let's get started with a blank SpriteBuilder project!
+
+#Feedback
+
+If you have feedback on this tutorial or find any mistakes, please open issues on the [GitHub Repository](https://github.com/MakeSchool-Tutorials/Sushi-Neko-SpriteBuilder-Swift).
