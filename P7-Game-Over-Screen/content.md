@@ -117,7 +117,7 @@ This code sets up the code connections we added in SpriteBuilder. It also create
 >       func triggerGameOver() {
 >           gameState = .GameOver
 >
->           var gameOverScreen = CCBReader.load("GameOver", owner: self) as! GameOver
+>           let gameOverScreen = CCBReader.load("GameOver", owner: self) as! GameOver
 >           gameOverScreen.score = score
 >           self.addChild(gameOverScreen)
 >       }
