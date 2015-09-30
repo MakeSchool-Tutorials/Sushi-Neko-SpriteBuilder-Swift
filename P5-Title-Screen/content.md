@@ -306,13 +306,13 @@ The only thing left to do is get `restart` working correctly again. As it's curr
 > [action]
 > Change the body of `restart` to:
 >
->       var mainScene = CCBReader.load("MainScene") as! MainScene
+>       let mainScene = CCBReader.load("MainScene") as! MainScene
 >       mainScene.ready()
 >
->       var scene = CCScene()
+>       let scene = CCScene()
 >       scene.addChild(mainScene)
 >
->       var transition = CCTransition(fadeWithDuration: 0.3)
+>       let transition = CCTransition(fadeWithDuration: 0.3)
 >
 >       CCDirector.sharedDirector().presentScene(scene, withTransition: transition)
 

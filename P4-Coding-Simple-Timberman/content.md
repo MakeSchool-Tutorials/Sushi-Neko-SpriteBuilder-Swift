@@ -103,9 +103,9 @@ We'll also need access to one of those code connections we added in SpriteBuilde
 > One possible way to write `didLoadFromCCB` is:
 >
 >       for i in 0..<10 {
->           var piece = CCBReader.load("Piece") as! Piece
+>           let piece = CCBReader.load("Piece") as! Piece
 >
->           var yPos = piece.contentSizeInPoints.height * CGFloat(i)
+>           let yPos = piece.contentSizeInPoints.height * CGFloat(i)
 >           piece.position = CGPoint(x: 0, y: yPos)
 >           piecesNode.addChild(piece)
 >           pieces.append(piece)
@@ -258,7 +258,7 @@ Now fill it in according to our four rules. Remember to return the side that is 
 >       if lastSide != .None {
 >           side = .None
 >       } else {
->           var rand = CCRANDOM_0_1()
+>           let rand = CCRANDOM_0_1()
 >           if rand < 0.45 {
 >               side = .Left
 >           } else if rand < 0.9 {
@@ -311,9 +311,9 @@ We'll add more to the `stepTower` method later on but go ahead and give this ver
 > You should have added a method like this to the `MainScene` class:
 >
 >       func stepTower() {
->           var piece = pieces[pieceIndex]
+>           let piece = pieces[pieceIndex]
 >
->           var yDiff = piece.contentSize.height * 10
+>           let yDiff = piece.contentSize.height * 10
 >           piece.position = ccpAdd(piece.position, CGPoint(x: 0, y: yDiff))
 >
 >           piece.zOrder = piece.zOrder + 1
@@ -372,7 +372,7 @@ Now checking for collisions between the character and obstacles is as easy as co
 > Create an `isGameOver() -> Bool ` method in `MainScene`:
 >
 >       func isGameOver() -> Bool {
->           var newPiece = pieces[pieceIndex]
+>           let newPiece = pieces[pieceIndex]
 >
 >           if newPiece.side == character.side { triggerGameOver() }
 >
@@ -413,7 +413,7 @@ Try out the game now. You'll realize that a restart button appears, but you can 
 > We also need to define the `restart()` method for `restartButton`.
 >
 >       func restart() {
->           var scene = CCBReader.loadAsScene("MainScene")
+>           let scene = CCBReader.loadAsScene("MainScene")
 >           CCDirector.sharedDirector().presentScene(scene)
 >       }
 
