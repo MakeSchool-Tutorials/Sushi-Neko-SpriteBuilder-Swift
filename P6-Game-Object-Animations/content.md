@@ -132,16 +132,16 @@ This method loads in a new piece, runs the correct animation, and adds it to the
 > [action]
 > Add the following line to `MainScene` with your other instance variable declarations:
 >
-> 		var addPiecesPosition: CGPoint?
+> 		var addPiecePosition: CGPoint?
 >
 > Add the following method above `didLoadFromCCB()` in `MainScene`:
 >
 > 		override func onEnter() {
-   	 		super.onEnter()
-    		addPiecesPosition = piecesNode.positionInPoints
+   	 	super.onEnter()
+    		addPiecePosition = piecesNode.positionInPoints
   		}
 >
-> The order of method calls at the creation of a SpriteBuilder object is `init()` -> `didLoadFromCCB()` -> `onEnter()`. Defining `addPiecesPosition` in `onEnter()` ensures that the position value has been fully defined for all of our nodes.
+> The order of method calls at the creation of a SpriteBuilder object is `init()` -> `didLoadFromCCB()` -> `onEnter()`. Defining `addPiecePosition` in `onEnter()` ensures that the position value has been fully defined for all of our nodes.
 
 Now we just need to trigger it appropriately.
 
