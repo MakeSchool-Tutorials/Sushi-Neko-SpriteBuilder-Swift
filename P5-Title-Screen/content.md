@@ -312,9 +312,7 @@ The only thing left to do is get `restart` working correctly again. As it's curr
 >       let scene = CCScene()
 >       scene.addChild(mainScene)
 >
->       let transition = CCTransition(fadeWithDuration: 0.3)
->
->       CCDirector.sharedDirector().presentScene(scene, withTransition: transition)
+>       CCDirector.sharedDirector().presentScene(scene)
 
 Try running the game to see how it looks!
 
