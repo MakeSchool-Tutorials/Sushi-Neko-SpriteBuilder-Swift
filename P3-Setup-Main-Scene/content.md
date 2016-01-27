@@ -31,7 +31,7 @@ We are about to set up the necessary nodes for the sushi stack. First we'll add 
 > [action]
 > Drag `Piece.ccb` onto the scene. Set its *position* to `(50%, -30)` and its *anchor point* to `(0.5, 0)`. This roll will serve as our base (similar to the tree stump in Timberman).
 >
-> Now we'll add an empty *CCNode* and position it so we have a reference point to programmatically build up our sushi stack. Drag in a *Node* from the *node library* pane on the left side of SpriteBuilder onto the scene. Set its *position* to `(50%, 28)` and its *anchor point* to `(0.5, 0)`. Create a `doc root var` code connection to `piecesNode` in the empty *CCNode* so we can use it programmatically later.
+> Now we'll add an empty *CCNode* and position it so we have a reference point to programmatically build up our sushi stack. Drag in a *Node* from the *node library* pane on the left side of SpriteBuilder onto the scene. Set its *position* to `(50%, 28)`. Create a `doc root var` code connection to `piecesNode` in the empty *CCNode* so we can use it programmatically later.
 
 Your scene and timeline should now look like this:
 
